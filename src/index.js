@@ -6,15 +6,15 @@ import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from 'react-router-dom';
 import {Provider} from 'react-redux';
-import {persistor, store} from "./redux/store";
-import {PersistGate} from "redux-persist/integration/react"
+import {persistor, store} from './redux/store';
+import {PersistGate} from 'redux-persist/integration/react';
 
 
 ReactDOM.render(
     <Provider store={store}>
         <BrowserRouter>
             <PersistGate persistor={persistor}>
-                <App/>
+                <App />
             </PersistGate>
         </BrowserRouter>
     </Provider>,

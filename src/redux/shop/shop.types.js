@@ -1,2 +1,1 @@
-export const ShopActionTypes = {
-};
+export const ShopActionTypes = {};
