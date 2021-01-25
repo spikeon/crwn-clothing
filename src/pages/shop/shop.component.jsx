@@ -1,16 +1,24 @@
 import React from 'react';
-import './shop.styles.scss';
 import CollectionsOverviewPage from '../collections-overview/collections-overview.component';
 import {Route, Switch} from 'react-router-dom';
 import CollectionPage from '../collection/collection.component';
+import {ShopPageContainer} from './shop.styles';
 
 const ShopPage = ({match}) => (
-    <div className='shop-page'>
+    <ShopPageContainer>
         <Switch>
-            <Route exact path={`${match.path}`} component={CollectionsOverviewPage} />
-            <Route path={`${match.path}/:collectionName`} component={CollectionPage} />
+            <Route
+                exact
+                path={`${match.path}`}
+                component={CollectionsOverviewPage}
+            />
+
+            <Route
+                path={`${match.path}/:collectionName`}
+                component={CollectionPage}
+            />
         </Switch>
-    </div>
+    </ShopPageContainer>
 );
 
 export default ShopPage;

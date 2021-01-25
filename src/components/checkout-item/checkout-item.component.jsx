@@ -1,29 +1,47 @@
 import React from 'react';
-import './checkout-item.styles.scss';
 import {connect} from 'react-redux';
 import {addItem, clearItem, removeItem} from '../../redux/cart/cart.actions';
+import {CheckoutItemContainer, CheckoutItemImage, CheckoutItemImageContainer, CheckoutItemNameContainer, CheckoutItemPriceContainer, CheckoutItemQuantityArrow, CheckoutItemQuantityContainer, CheckoutItemQuantityValue, CheckoutItemRemoveButton} from './checkout-item.styles';
 
 const CheckoutItem = ({item, clearItem, removeItem, addItem}) => {
     const {name, quantity, price, imageUrl} = item;
     return (
-        <div className='checkout-item'>
+        <CheckoutItemContainer>
 
-            <div className='image-container'>
-                <img src={imageUrl} alt='item' />
-            </div>
+            <CheckoutItemImageContainer>
+                <CheckoutItemImage src={imageUrl} alt='item' />
+            </CheckoutItemImageContainer>
 
-            <span className='name'>{name}</span>
+            <CheckoutItemNameContainer>
+                {name}
+            </CheckoutItemNameContainer>
 
-            <div className='quantity'>
-                <div className='arrow' onClick={() => removeItem(item)}>&#10094;</div>
-                <span className='value'>{quantity}</span>
-                <div className='arrow' onClick={() => addItem(item)}>&#10095;</div>
-            </div>
+            <CheckoutItemQuantityContainer>
+                <CheckoutItemQuantityArrow
+                    onClick={() => removeItem(item)}
+                >
+                    &#10094;
+                </CheckoutItemQuantityArrow>
 
-            <span className='price'>${price}</span>
+                <CheckoutItemQuantityValue>
+                    {quantity}
+                </CheckoutItemQuantityValue>
 
-            <div className='remove-button' onClick={() => clearItem(item)}>&#10005;</div>
-        </div>
+                <CheckoutItemQuantityArrow
+                    onClick={() => addItem(item)}
+                >
+                    &#10095;
+                </CheckoutItemQuantityArrow>
+            </CheckoutItemQuantityContainer>
+
+            <CheckoutItemPriceContainer>${price}</CheckoutItemPriceContainer>
+
+            <CheckoutItemRemoveButton
+                onClick={() => clearItem(item)}
+            >
+                &#10005;
+            </CheckoutItemRemoveButton>
+        </CheckoutItemContainer>
     );
 };
 

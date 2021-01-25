@@ -2,7 +2,7 @@ import React from 'react';
 import StripeCheckout from 'react-stripe-checkout';
 import {connect} from 'react-redux';
 import {clearAllItems} from '../../redux/cart/cart.actions';
-import "./stripe-button.styles.scss";
+import {StripeButtonContainer} from './stripe-button.styles';
 
 const StripeCheckoutButton = ({price, clearAllItems}) => {
     const fullPrice = price * 100;
@@ -15,7 +15,7 @@ const StripeCheckoutButton = ({price, clearAllItems}) => {
     }
 
     return (
-        <div className='stripe-button-container'>
+        <StripeButtonContainer>
             <StripeCheckout
                 label='Pay Now'
                 name='CRWN Clothing'
@@ -26,7 +26,7 @@ const StripeCheckoutButton = ({price, clearAllItems}) => {
                 panelLabel='Pay Now'
                 token={onToken}
             />
-        </div>
+        </StripeButtonContainer>
     );
 };
 
