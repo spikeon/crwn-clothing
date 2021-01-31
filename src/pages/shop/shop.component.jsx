@@ -10,7 +10,7 @@ const ShopPage = ({fetchCollectionsStart, match: {path}}) => {
 
     useEffect(() => {
         fetchCollectionsStart();
-    }, []);
+    }, [fetchCollectionsStart]);
 
     return (
         <ShopPageContainer>
