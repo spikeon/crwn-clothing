@@ -10,7 +10,7 @@ import {createStructuredSelector} from 'reselect';
 import CheckoutPage from './pages/checkout/checkout.component';
 import {checkUserSession} from './redux/user/user.actions';
 
-const App = ({checkUserSession}) => {
+const App = ({checkUserSession, currentUser}) => {
 
     useEffect(() => {
         checkUserSession();
@@ -40,7 +40,7 @@ const App = ({checkUserSession}) => {
                 <Route
                     exact
                     path='/signIn'
-                    render={() => this.props.currentUser ? (<Redirect to='/' />) : (<SignInAndSignUp />)}
+                    render={() => currentUser ? (<Redirect to='/' />) : (<SignInAndSignUp />)}
                 />
 
             </Switch>
