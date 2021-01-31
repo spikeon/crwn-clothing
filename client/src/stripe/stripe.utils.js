@@ -1,0 +1,1 @@
+export const stripeCurrencyConversion = (priceInUsd) => priceInUsd * 100;

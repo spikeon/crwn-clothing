@@ -3,16 +3,33 @@ import StripeCheckout from 'react-stripe-checkout';
 import {connect} from 'react-redux';
 import {clearAllItems} from '../../redux/cart/cart.actions';
 import {StripeButtonContainer} from './stripe-button.styles';
+import axios from 'axios';
+import {STRIPE_PUBLISHABLE_KEY} from '../../stripe/stripe.config';
+import {stripeCurrencyConversion} from '../../stripe/stripe.utils';
 
 const StripeCheckoutButton = ({price, clearAllItems}) => {
-    const fullPrice = price * 100;
-    const publishableKey = 'pk_test_51ICW2FJrnzuV116D4nqTLA1dhvfmZvC3csY9HOCkc2OAOAWfnEnhJrXhdVM1MaD6u1eMb3v2PjCXkHcNx394uzQJ00SvX49PIT';
+    const fullPrice = stripeCurrencyConversion(price);
 
     const onToken = token => {
-        console.log(token);
-        alert('Payment Successful');
+
+        axios({
+            url: 'payment',
+            method: 'post',
+            data: {
+                amount: fullPrice,
+                token: token
+            }
+        }).then(response => {
+            alert('Payment successful');
+        }).catch(error => {
+            console.log('Payment Error: ', JSON.parse(error));
+            alert(
+                'There was an issue with your payment.  Please make sure you use the provided test credit card number.'
+            );
+        });
+
         clearAllItems();
-    }
+    };
 
     return (
         <StripeButtonContainer>
@@ -20,7 +37,7 @@ const StripeCheckoutButton = ({price, clearAllItems}) => {
                 label='Pay Now'
                 name='CRWN Clothing'
                 amount={fullPrice}
-                stripeKey={publishableKey}
+                stripeKey={STRIPE_PUBLISHABLE_KEY}
                 image='https://svgshare.com/i/CUz.svg'
                 description={`Your total is: $${price}`}
                 panelLabel='Pay Now'
