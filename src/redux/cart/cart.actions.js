@@ -20,5 +20,5 @@ export const clearItem = (item) => ({
 });
 
 export const clearAllItems = () => ({
-    type: CartActionTypes.CLEAR_ALL_ITEMS
+    type: CartActionTypes.CLEAR_CART
 });
