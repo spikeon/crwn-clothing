@@ -38,3 +38,11 @@ export const TestWarning = styled.div`
   font-size: 24px;
   color: red;
 `;
+
+export const EmptyCartMessage = styled.div`
+  height: 400px;
+  font-size: 24px;
+  color: #aaa;
+  text-align: center;
+  padding-top: 200px;
+`;
