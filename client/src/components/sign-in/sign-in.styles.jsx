@@ -4,6 +4,11 @@ export const SignInContainer = styled.div`
   width: 380px;
   display: flex;
   flex-direction: column;
+  @media screen and (max-width: 800px) {
+    padding-bottom: 20px;
+    border-bottom: 2px dashed #aaa;
+  }
+
 `;
 
 export const SignInTitle = styled.h2`

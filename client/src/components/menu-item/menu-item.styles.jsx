@@ -6,6 +6,10 @@ export const MenuItemBackgroundImage = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  background-image: ${({imageUrl}) => `url(${imageUrl})`};
+
+  @media screen and (max-width: 800px) {
+  }
 `;
 
 export const MenuItemContentContainer = styled.div`
@@ -23,6 +27,7 @@ export const MenuItemContentContainer = styled.div`
 
 
 export const MenuItemContainer = styled.div`
+  height: ${({size}) => size === 'large' ? '380px' : '240px'};
   min-width: 30%;
   flex: 1 1 auto;
   display: flex;
@@ -52,7 +57,9 @@ export const MenuItemContainer = styled.div`
     }
   }
 
-  ${props => props.size === 'large' ? `height:380px;` : `height: 240px;`}
+  @media screen and (max-width: 800px) {
+    height: 200px;
+  }
 
 `;
 

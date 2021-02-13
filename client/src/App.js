@@ -9,6 +9,7 @@ import {selectCurrentUser} from './redux/user/user.selector';
 import {createStructuredSelector} from 'reselect';
 import CheckoutPage from './pages/checkout/checkout.component';
 import {checkUserSession} from './redux/user/user.actions';
+import {GlobalStyle} from './global.styles';
 
 const App = ({checkUserSession, currentUser}) => {
 
@@ -18,6 +19,7 @@ const App = ({checkUserSession, currentUser}) => {
 
     return (
         <div>
+            <GlobalStyle />
             <Header />
             <Switch>
                 <Route

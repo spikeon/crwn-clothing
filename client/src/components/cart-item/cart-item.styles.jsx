@@ -5,11 +5,14 @@ export const CartItemContainer = styled.div`
   display: flex;
   height: 80px;
   margin-bottom: 15px;
+
+  @media screen and (max-width: 800px) {
+    height: 100px;
+    margin-bottom: 20px;
+  }
 `;
 
-export const CartItemImage = styled.img`
-  width: 30%;
-`;
+export const CartItemImage = styled.img``;
 
 export const CartItemDetails = styled.div`
   width: 70%;
@@ -22,6 +25,14 @@ export const CartItemDetails = styled.div`
 
 export const CartItemName = styled.span`
   font-size: 16px;
+  @media screen and (max-width: 800px) {
+    font-size: 24px;
+  }
+
 `;
 
-export const CartItemPrice = styled.span``;
+export const CartItemPrice = styled.span`
+  @media screen and (max-width: 800px) {
+    font-size: 18px;
+  }
+`;

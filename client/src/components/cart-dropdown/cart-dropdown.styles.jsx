@@ -16,10 +16,16 @@ export const CartDropdownContainer = styled.div`
   button {
     margin-top: auto;
   }
+
+  @media screen and (max-width: 800px) {
+    width: 95vw;
+    right: 2.5vw;
+    height: calc(100vh - 90px);
+  }
 `;
 
 export const CartItemsContainer = styled.div`
-  height: 240px;
+  height: auto;
   display: flex;
   flex-direction: column;
   overflow: auto;

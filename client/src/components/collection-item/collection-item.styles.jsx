@@ -15,6 +15,13 @@ export const CollectionItemCustomButton = styled(CustomButton)`
   position: absolute;
   top: 255px;
   display: none;
+
+  @media screen and (max-width: 800px) {
+    display: block;
+    opacity: 0.9;
+    min-width: unset;
+    padding: 0 10px;
+  }
 `;
 
 export const CollectionItemContainer = styled.div`
@@ -35,6 +42,17 @@ export const CollectionItemContainer = styled.div`
       display: flex;
     }
   }
+
+  @media screen and (max-width: 800px) {
+    width: 40vw;
+    ${CollectionItemImage} {
+      opacity: unset;
+    }
+
+    ${CollectionItemCustomButton} {
+      opacity: unset;
+    }
+  }
 `;
 
 
@@ -44,13 +62,25 @@ export const CollectionItemFooterContainer = styled.div`
   display: flex;
   justify-content: space-between;
   font-size: 18px;
+  @media screen and (max-width: 800px) {
+    height: 20px;
+  }
+
 `;
 
 export const CollectionItemName = styled.span`
   width: 90%;
   margin-bottom: 15px;
+  @media screen and (max-width: 800px) {
+    width: auto;
+    margin-bottom: 0;
+  }
+
 `;
 
 export const CollectionItemPrice = styled.span`
   width: 10%;
+  @media screen and (max-width: 800px) {
+    width: auto;
+  }
 `;
